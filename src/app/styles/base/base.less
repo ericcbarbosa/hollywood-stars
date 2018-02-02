@@ -1,0 +1,29 @@
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+    background-color: @base-bg-color;
+    font-size: @base-font-size;
+}
+
+body {
+    color: @base-font-color;
+    font-size: 1.4rem;
+}
+
+a {
+    color: @color-link;
+    transition: color ease-in-out .2s;
+
+    &:hover {
+        color: darken( @color-link, 20% );
+    }
+
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+img {
+    max-width: 100%;
+}

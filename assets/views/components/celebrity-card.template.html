@@ -1,0 +1,14 @@
+<div class="card card-hover">
+    <div class="card-image">
+        <a href="celebrity/{{ $ctrl.celebrity.urlName }}" title="See more about {{ $ctrl.celebrity.name }}">
+            <img src="{{ $ctrl.celebrity.image }}">
+            <h4 class="card-title">{{ $ctrl.celebrity.name }}</h4>
+        </a>
+    </div>
+    <div class="card-content">
+        <p class="line-clamp">{{ $ctrl.celebrity.description }}</p>
+    </div>
+    <div class="card-action">
+        <a href="celebrity/{{ $ctrl.celebrity.urlName }}">See more</a>
+    </div>
+</div>

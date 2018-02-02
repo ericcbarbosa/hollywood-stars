@@ -1,0 +1,22 @@
+nav {
+    background-color: @nav-bg-color;
+    box-shadow: none;
+    border-bottom: 1px solid @color-primary;
+
+    ul {
+        a {
+            color: @nav-txt-color;
+            font-size: 1.6rem;
+
+            &:focus,
+            &:hover {
+                color: @nav-txt-color;
+                background-color: lighten( @nav-bg-color, 10% );
+            }
+
+            &:focus {
+                text-decoration: none;
+            }
+        }
+    }
+}
