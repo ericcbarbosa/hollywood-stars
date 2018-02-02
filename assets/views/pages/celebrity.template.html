@@ -1,9 +1,11 @@
-<div class="row">
-    <div class="col m4">
-        <img src="{{ celebrity.image }}" alt="">
-    </div>
-    <div class="col m8">
-        <h2 class="mt-0">{{ celebrity.name }}</h2>
-        <p>{{ celebrity.description }}</p>
+<div class="container page-content">
+    <div class="row celebrity-details">
+        <div class="col m8 info">
+            <h2 class="title">{{ celebrity.name }}</h2>
+            <p class="description">{{ celebrity.description }}</p>
+        </div>
+        <div class="col m4 gallery">
+            <img class="thumb" src="{{ celebrity.image }}" alt="">
+        </div>
     </div>
 </div>

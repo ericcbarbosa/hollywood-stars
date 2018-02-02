@@ -8,7 +8,7 @@
     "debug": "webpack watch --progress --profile --colors --display-error-details --display-cached",
     "serve": "webpack-dev-server --open --color",
     "watch": "webpack --watch --color",
-    "dev": "concurrently \"webpack --watch\" \"webpack-dev-server --open --color\" --kill-others"
+    "dev": "concurrently \"webpack --watch --hot\" \"webpack-dev-server --open --color\" --kill-others"
   },
   "author": "Eric Barbosa",
   "license": "ISC",
@@ -27,6 +27,7 @@
     "extract-loader": "^1.0.2",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
-    "html-loader": "^0.5.5"
+    "html-loader": "^0.5.5",
+    "ng-file-upload": "^12.2.13"
   }
 }
