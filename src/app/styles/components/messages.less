@@ -1,0 +1,30 @@
+.messages {
+
+    .item {
+        font-weight: 500;
+        border: 1px solid;
+        display: block;
+        padding: 7px 12px;
+        border-radius: 4px;
+
+        + .item {
+            margin-top: 1rem;
+        }
+    }
+
+    &.error {
+        .item {
+            color: @color-danger;
+            border-color: @color-danger;
+            background-color: lighten( @color-danger, 40% );
+        }
+    }
+
+    &.success {
+        .item {
+            color: @color-success;
+            border-color: @color-success;
+            background-color: lighten( @color-success, 60% );
+        }
+    }
+}

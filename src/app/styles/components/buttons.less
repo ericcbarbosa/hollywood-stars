@@ -1,0 +1,70 @@
+.btn {
+    font-size: 1.2rem;
+    border-radius: 4px;
+    box-shadow: none;
+    // border: 1px solid;
+    line-height: 34px;
+    transition: all ease-in-out .2s;
+
+    &:hover {
+        box-shadow: none;
+    }
+
+    + .btn {
+        margin-left: 1rem;
+    }
+
+    &.btn-default {
+        
+    }
+
+    &.btn-primary {
+        color: @color-primary;
+        background-color: lighten(@color-primary, 40%);
+        
+        &:hover {
+            color: @color-lighter;
+            background-color: @color-primary;
+        }
+    }
+
+    &.btn-success {
+        color: @color-success;
+        background-color: lighten(@color-success, 45%);
+
+        &:hover {
+            color: @color-lighter;
+            background-color: @color-success;
+        }
+    }
+
+    &.btn-info {
+        color: @color-info;
+        background-color: lighten(@color-info, 35%);
+
+        &:hover {
+            color: @color-lighter;
+            background-color: @color-info;
+        }
+    }
+
+    &.btn-danger {
+        color: @color-danger;
+        background-color: lighten(@color-danger, 40%);
+
+        &:hover {
+            color: @color-lighter;
+            background-color: @color-danger;
+        }
+    }
+
+    &.btn-warning {
+        color: @color-warning;
+        background-color: lighten(@color-warning, 40%);
+
+        &:hover {
+            color: @color-lighter;
+            background-color: @color-warning;
+        }
+    }
+}

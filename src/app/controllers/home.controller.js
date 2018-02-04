@@ -3,7 +3,8 @@
 function homeController( $scope, CelebritiesService ) {
     $scope.title = 'Top Celebrities:';
 
-    $scope.celebrityList = CelebritiesService.getCelebrities();
+    $scope.celebrityList = CelebritiesService.get();
+    console.log($scope.celebrityList)
 }
 
 module.exports = homeController;

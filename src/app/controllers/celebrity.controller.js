@@ -1,10 +1,12 @@
 function celebrityController( $scope, $routeParams, CelebritiesService ) {
 
-    $scope.celebrityList = CelebritiesService.getCelebrities();
-    $scope.celebrityName = CelebritiesService.toCapitalize( $routeParams.name );
+    $scope.celebrityList    = CelebritiesService.get();
+    $scope.celebrityUrlName = $routeParams.name;
+    $scope.celebrityId      = $routeParams.id;
+    $scope.celebrityName    = CelebritiesService.toCapitalize( $scope.celebrityUrlName );
 
     $scope.celebrityList.map( function( celebrity ) {
-        if ( celebrity.name == $scope.celebrityName ) {
+        if ( celebrity.id == $scope.celebrityId ) {
             $scope.celebrity = celebrity;
         }
     });

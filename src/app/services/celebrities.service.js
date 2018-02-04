@@ -40,7 +40,7 @@ function CelebritiesService() {
             description: 'Marina Souza Ruy Barbosa Negrão é uma atriz brasileira. Começou a atuar ainda criança, e fez seu primeiro trabalho de destaque no papel de Aninha na telenovela Começar de Novo.',
             image: 'http://s2.glbimg.com/Zpl4bjt56sjaF0zb9x3pK4-oPWM=/e.glbimg.com/og/ed/f/original/2017/08/07/marn.jpg',
         }
-    ]
+    ];
 
     var service = {
 
@@ -63,9 +63,83 @@ function CelebritiesService() {
             return celebrities;
         },
 
-        add: function (celebrity) {
-            celebrities.push( celebrity );
+        add: function ( celebrity ) {
+            var localStorageList = JSON.parse( localStorage.getItem("celebritiesList") );
+
+            if ( localStorageList ) {
+                localStorageList.push( celebrity );
+                this.update( localStorageList );
+            }
+
+            else {
+                localStorageList = [];
+                localStorageList.push(celebrity);
+                this.update( localStorageList );
+            }
+
+            return true;
         },
+
+        get: function () {
+            var celebritiesList = localStorage.getItem("celebritiesList") !== null
+                                  ? JSON.parse( localStorage.getItem("celebritiesList") )
+                                  : false;
+
+            return celebritiesList;
+        },
+
+        search: function(id) {
+            var celebritiesList = this.get();
+            var searchResult;
+
+            id = parseInt(id);
+
+            if ( celebritiesList ) {
+                celebritiesList.map(function( celebrity ) {
+
+                    if ( celebrity.id == id )
+                        searchResult = celebrity;
+
+                });
+            }
+
+            return searchResult;
+        },
+
+        update: function ( celebritiesList ) {
+            localStorage.setItem('celebritiesList', JSON.stringify( celebritiesList ));
+        },
+
+        edit: function ( celebrity ) {
+            this.delete( celebrity.id );
+            this.add( celebrity );
+
+            return this.get();
+        },
+
+        delete: function (id) {
+            var celebritiesList = this.get();
+            var deleted = false;
+
+            id = parseInt(id);
+
+            if ( celebritiesList ) {
+                celebritiesList.map( function( celebrity, index ) {
+
+                    if ( celebrity.id == id ) {
+                        deleted = celebritiesList.splice(index, 1);
+                    }
+
+                });
+
+                console.log('Update ->', celebritiesList);
+
+                this.update( celebritiesList );
+            }
+
+            return deleted;
+        },
+
     }
 
     return service;

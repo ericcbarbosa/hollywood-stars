@@ -1,6 +1,6 @@
 <div class="card card-hover">
     <div class="card-image">
-        <a href="celebrity/{{ $ctrl.celebrity.urlName }}" title="See more about {{ $ctrl.celebrity.name }}">
+        <a href="celebrity/{{ $ctrl.celebrity.urlName }}/{{ $ctrl.celebrity.id }}" title="See more about {{ $ctrl.celebrity.name }}">
             <img src="{{ $ctrl.celebrity.image }}">
             <h4 class="card-title">{{ $ctrl.celebrity.name }}</h4>
         </a>
@@ -9,6 +9,8 @@
         <p class="line-clamp">{{ $ctrl.celebrity.description }}</p>
     </div>
     <div class="card-action">
-        <a href="celebrity/{{ $ctrl.celebrity.urlName }}">See more</a>
+        <a class="btn btn-danger" ng-click="remove($ctrl.celebrity.id)" href="javascript:;">Remove</a>
+        <a class="btn btn-success" href="celebrity/{{ $ctrl.celebrity.urlName }}/{{ $ctrl.celebrity.id }}/edit">Edit</a>
+        <a class="btn btn-info" href="celebrity/{{ $ctrl.celebrity.urlName }}/{{ $ctrl.celebrity.id }}">See more</a>
     </div>
 </div>

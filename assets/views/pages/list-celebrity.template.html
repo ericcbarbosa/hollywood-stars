@@ -4,11 +4,18 @@
     <h3>{{ title }}</h3>
 
     <div class="row">
-        <div class="col s6 m4" ng-repeat="celebrity in celebrityList | limitTo:3">
+        <div class="col s4 forms-field">
+            <input type="search" placeholder="Search..." class="forms-input browser-default" ng-model="busca">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s6 m4" ng-repeat="celebrity in celebrityList | filter:busca">
             <card-celebrity celebrity="celebrity"></card-celebrity>
         </div>
     </div>
 </div>
+
 
 <div class="container" ng-show="!celebrityList">
     <h4>Ops! Nenhuma celebridade cadastrada até o momento!</h4>

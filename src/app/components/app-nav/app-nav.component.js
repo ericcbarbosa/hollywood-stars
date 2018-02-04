@@ -6,7 +6,7 @@ function appNavController ($scope, $element, $attrs) {
         },
         celebrities: {
             name: 'Celebrities',
-            link: 'celebrities/list'
+            link: 'celebrities'
         },
         add: {
             name: 'Add',

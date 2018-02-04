@@ -1,14 +1,5 @@
 function appHeaderController ($scope, $element, $attrs) {
-    $scope.navLinks = {
-        home: {
-            name: 'Home',
-            link: '/'
-        },
-        celebrities: {
-            name: 'Celebrities',
-            link: 'celebrities/list'
-        }
-    }
+    
 }
 
 angular.module('hollywoodStars').component('appHeader', {

@@ -26,6 +26,10 @@ img {
   width: 100%;
   float: left;
 }
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
 label {
   color: #303030;
   font-size: 1.4rem;
@@ -46,6 +50,7 @@ textarea {
 .forms-input {
   display: inline-block;
   padding: 7px 12px;
+  min-height: 36px;
   border-radius: 4px;
   border: 1px solid #CCCCCC;
 }
@@ -278,6 +283,59 @@ textarea {
   border-radius: 4px;
   border: 1px solid #CCCCCC;
 }
+.btn {
+  font-size: 1.2rem;
+  border-radius: 4px;
+  box-shadow: none;
+  line-height: 34px;
+  transition: all ease-in-out 0.2s;
+}
+.btn:hover {
+  box-shadow: none;
+}
+.btn + .btn {
+  margin-left: 1rem;
+}
+.btn.btn-primary {
+  color: #0093ff;
+  background-color: #cce9ff;
+}
+.btn.btn-primary:hover {
+  color: #FFFFFF;
+  background-color: #0093ff;
+}
+.btn.btn-success {
+  color: #16d780;
+  background-color: #d8fbeb;
+}
+.btn.btn-success:hover {
+  color: #FFFFFF;
+  background-color: #16d780;
+}
+.btn.btn-info {
+  color: #2ca6ff;
+  background-color: #dff1ff;
+}
+.btn.btn-info:hover {
+  color: #FFFFFF;
+  background-color: #2ca6ff;
+}
+.btn.btn-danger {
+  color: #e92551;
+  background-color: #fcdee5;
+}
+.btn.btn-danger:hover {
+  color: #FFFFFF;
+  background-color: #e92551;
+}
+.btn.btn-warning {
+  color: #ffd000;
+  background-color: #fff6cc;
+}
+.btn.btn-warning:hover {
+  color: #FFFFFF;
+  background-color: #ffd000;
+}
 .card {
   border-radius: 4px;
   box-shadow: none;
@@ -319,6 +377,9 @@ textarea {
   text-shadow: 0px 0px 5px #000000;
   z-index: 2;
 }
+.card .card-content {
+  height: 110px;
+}
 .card .card-content p.line-clamp {
   overflow-y: hidden;
   display: -webkit-box;
@@ -336,6 +397,26 @@ textarea {
 }
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
   color: #0072c5;
+}
+.messages .item {
+  font-weight: 500;
+  border: 1px solid;
+  display: block;
+  padding: 7px 12px;
+  border-radius: 4px;
+}
+.messages .item + .item {
+  margin-top: 1rem;
+}
+.messages.error .item {
+  color: #e92551;
+  border-color: #e92551;
+  background-color: #fcdee5;
+}
+.messages.success .item {
+  color: #16d780;
+  border-color: #16d780;
+  background-color: #ffffff;
 }
 nav {
   background-color: #151515;

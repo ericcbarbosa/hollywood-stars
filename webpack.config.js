@@ -13,7 +13,8 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: './'
+        contentBase: './',
+        historyApiFallback: true
     },
     module: {
         rules: [

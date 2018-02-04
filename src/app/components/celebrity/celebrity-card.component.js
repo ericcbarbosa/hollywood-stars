@@ -1,5 +1,5 @@
 function celebrityCardController ($scope, $element, $attrs) {
-    
+    $scope.remove = $scope.$parent.remove;
 }
 
 angular.module('hollywoodStars').component('cardCelebrity', {
