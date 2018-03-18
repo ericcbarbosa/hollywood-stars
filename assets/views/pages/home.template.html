@@ -1,16 +1,21 @@
 <app-header title="Hollywood Stars" description="The ultimate celebrities catalog"></app-header>
 
-<div class="container" ng-show="celebrityList.length > 0">
-    <h3>{{ title }}</h3>
+<div class="container clear" ng-show="celebrityList.length > 0">
+    <h3 class="txt-title">{{ title }}</h3>
 
-    <div class="row">
+    <div class="row mb-0">
         <div class="col s6 m4" ng-repeat="celebrity in celebrityList | limitTo:3">
             <card-celebrity celebrity="celebrity"></card-celebrity>
         </div>
     </div>
+    <div class="row" ng-show="celebrityList.length > 3">
+        <div class="col s12 txt-right">
+            <a class="btn btn-info btn-lg active" href="/celebrities">See all</a>
+        </div>
+    </div>
 </div>
 
-<div class="container" ng-show="!celebrityList">
-    <h4>Ops! Nenhuma celebridade cadastrada até o momento!</h4>
-    <p>Para cadastrar <a href="celebrity/add">clique aqui</a></p>
+<div class="container" ng-show="!celebrityList || celebrityList.length < 1">
+    <h4>It looks like there is no celebrity added to your list yet!</h4>
+    <p>To add one, go ahead and <a href="celebrity/add">click here</a></p>
 </div>

@@ -1,0 +1,14 @@
+.preview {
+    .thumb {
+        display: block;
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+    .name {
+        &:extend(.txt-size-3, .txt-danger, .txt-bold);
+    }
+    .description {
+        &:extend(.txt-size-2);
+    }
+}

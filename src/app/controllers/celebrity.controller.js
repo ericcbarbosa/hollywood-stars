@@ -1,15 +1,18 @@
-function celebrityController( $scope, $routeParams, CelebritiesService ) {
+function celebrityController( $scope, $routeParams, CelebritiesService, $window ) {
+    
+    $scope.celebrity = CelebritiesService.search( parseInt( $routeParams.id ) );
 
-    $scope.celebrityList    = CelebritiesService.get();
-    $scope.celebrityUrlName = $routeParams.name;
-    $scope.celebrityId      = $routeParams.id;
-    $scope.celebrityName    = CelebritiesService.toCapitalize( $scope.celebrityUrlName );
+    $scope.showMessage = false;
+    $scope.message = $scope.celebrity.name + ' removed successfully';
 
-    $scope.celebrityList.map( function( celebrity ) {
-        if ( celebrity.id == $scope.celebrityId ) {
-            $scope.celebrity = celebrity;
-        }
-    });
+    $scope.remove = function (id) {
+        CelebritiesService.delete(id);
+        $scope.showMessage = true;
+
+        setTimeout(function() {
+            $window.location.href = '/';
+        }, 3000);
+    }
 }
 
 module.exports = celebrityController;

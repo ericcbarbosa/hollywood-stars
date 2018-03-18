@@ -1,15 +1,10 @@
-require('angular-route');
-
 angular.module('hollywoodStars', [
-    'ngRoute'
+    'ngRoute',
+    'ngMessages'
 ]);
 
 require('./app.config');
-
-require('./services/')
-
+require('./services')
 require('./controllers');
-
-require('./components/app-header/app-header.component');
-require('./components/app-nav/app-nav.component');
-require('./components/celebrity/celebrity-card.component');
+require('./directives');
+require('./components');

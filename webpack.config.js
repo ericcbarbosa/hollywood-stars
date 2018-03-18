@@ -5,7 +5,12 @@ var path = require('path');
 module.exports = {
     entry: {
         app: ['./src/app/app.js', './src/app/styles/main.less'],
-        vendor: ['angular']
+        vendor: [
+            'angular',
+            'angular-route',
+            'angular-messages',
+            'angular-locale-pt-br'
+        ]
     },
     output: {
         path: path.join(__dirname, '/assets/js'),

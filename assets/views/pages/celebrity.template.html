@@ -1,14 +1,32 @@
 <div class="container page-content">
     <div class="row celebrity-details">
-        <div class="col m8 info">
-            <h2 class="title">{{ celebrity.name }}</h2>
-            <p class="description">{{ celebrity.description }}</p>
-        </div>
         <div class="col m4 gallery">
             <img class="thumb" src="{{ celebrity.image }}" alt="">
+            
+            <p class="birthdate"> <strong>Birthdate:</strong> {{ celebrity.birthdate }}</p>
+            <p class="gender"><strong>Gender:</strong> {{ celebrity.gender }}</p>
+            <p class="height"><strong>Height:</strong> {{ celebrity.height }}</p>
+            <p class="occupation"><strong>Occupation:</strong> {{ celebrity.occupation }}</p>
+            
             <div>
-                <a class="btn btn-success" href="celebrity/{{ celebrityUrlName }}/{{ celebrityId }}/edit">Edit</a>
+                <a class="btn btn-success" href="celebrity/{{ celebrity.urlName }}/{{ celebrity.id }}/edit">Edit</a>
+                <a class="btn btn-danger" ng-click="remove(celebrity.id)">Remove</a>
+                <ul class="messages success" ng-show="showMessage">
+                    <li class="item">
+                        {{ message }}
+                    </li>
+                </ul>
             </div>
+        </div>
+
+        <div class="col m8 info">
+            <h2 class="txt-title mb-0 mt-0">
+                {{ celebrity.name.artistic }}
+                <small class="block txt-default txt-normal">{{ celebrity.name.birth }}</small>
+            </h2>
+            <!-- <small class="txt-size-1 mb-4">{{ celebrity.name.birth }}</small> -->
+            <p class="description">{{ celebrity.description }}</p>
+            
         </div>
     </div>
 </div>

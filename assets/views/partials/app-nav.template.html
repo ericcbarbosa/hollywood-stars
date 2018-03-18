@@ -2,11 +2,23 @@
     <nav class="row">
         <div class="nav-wrapper">
             <div class="container">
-                <a href="/" class="brand-logo">Logo</a>
+                <a href="/" class="brand-logo link link-warning no-decoration">
+                    Hollywood Stars
+                </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li ng-repeat="item in navLinks">
-                        <a href="{{ item.link }}" title="{{ item.name }}">
-                            {{ item.name }}
+                    <li>
+                        <a href="/" class="link no-decoration link-info" title="Home">
+                            <i class="material-icons">home</i> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/celebrities" class="link no-decoration link-warning" title="Celebrities">
+                            <i class="material-icons">stars</i> Celebrities
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/celebrity/add" class="link no-decoration link-success" title="Add a new celebrity">
+                            <i class="material-icons">add_circle</i> Add
                         </a>
                     </li>
                 </ul>

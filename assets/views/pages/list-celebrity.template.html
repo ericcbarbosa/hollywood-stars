@@ -1,23 +1,36 @@
-<app-header title="Hollywood Stars" description="The ultimate celebrities catalog"></app-header>
+<!-- <app-header title="Hollywood Stars" description="The ultimate celebrities catalog"></app-header> -->
 
-<div class="container" ng-show="celebrityList.length > 0">
-    <h3>{{ title }}</h3>
+<div class="container page-content" ng-show="celebrityList.length > 0">
+    <h3 class="txt-title">{{ title }}</h3>
 
     <div class="row">
-        <div class="col s4 forms-field">
-            <input type="search" placeholder="Search..." class="forms-input browser-default" ng-model="busca">
+        <div class="col s4">
+            <div class="forms-field">
+                <label for="search">Search by name:</label>
+                <input type="search" id="search" class="forms-input browser-default" ng-model="busca">
+            </div>
+        </div>
+        <div class="col s4">
+            <div class="forms-field">
+                <label for="orderList">Order list by:</label>
+                <select id="orderList" class="forms-input browser-default" ng-model="orderByParam" ng-init="orderByParam='id'">
+                    <option value="name.artistic" selected>Name</option>
+                    <option value="id">Id</option>
+                </select>
+            </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col s6 m4" ng-repeat="celebrity in celebrityList | filter:busca">
+        <div class="col s6 m4" ng-repeat="celebrity in celebrityList | filter:busca | orderBy:orderByParam">
             <card-celebrity celebrity="celebrity"></card-celebrity>
         </div>
     </div>
 </div>
 
-
-<div class="container" ng-show="!celebrityList">
-    <h4>Ops! Nenhuma celebridade cadastrada até o momento!</h4>
-    <p>Para cadastrar <a href="celebrity/add">clique aqui</a></p>
+<div class="container" ng-show="!celebrityList || celebrityList.length < 1">
+    <div class="row txt-center">
+        <h4 class="txt-bold txt-danger txt-size-3">It looks like there is no celebrity added to your list yet!</h4>
+        <p class="txt-size-2">To add one, go ahead and <a href="celebrity/add">click here</a></p>
+    </div>
 </div>

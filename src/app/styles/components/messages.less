@@ -1,5 +1,10 @@
 .messages {
 
+    &.col {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     .item {
         font-weight: 500;
         border: 1px solid;
@@ -12,7 +17,7 @@
         }
     }
 
-    &.error {
+    &.danger {
         .item {
             color: @color-danger;
             border-color: @color-danger;
@@ -24,7 +29,20 @@
         .item {
             color: @color-success;
             border-color: @color-success;
-            background-color: lighten( @color-success, 60% );
+            background-color: lighten( @color-success, 50% );
+        }
+    }
+
+    &.form-feedback {
+        margin-top: 5px;
+        margin-bottom: 0;
+
+        .item {
+            font-size: 1.2rem;
+            padding: 0 5px;
+            border: none;
+            border-radius: 0;
+            background-color: transparent;
         }
     }
 }

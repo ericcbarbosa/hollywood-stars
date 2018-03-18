@@ -1,5 +1,4 @@
-angular
-    .module('hollywoodStars')
+angular.module('hollywoodStars')
     .config(
         function( $routeProvider, $locationProvider ) {
 

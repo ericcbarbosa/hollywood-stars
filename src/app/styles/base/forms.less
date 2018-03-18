@@ -8,11 +8,19 @@ label {
 
 textarea {
     height: inherit;
+
+    &.forms-input {
+        min-height: 80px;
+    }
 }
 
 .forms-field {
     + .forms-field {
         margin-top: 2rem;
+    }
+
+    &.mt-0 {
+        margin-top: 0;
     }
 
     .forms-input {
@@ -31,5 +39,10 @@ textarea {
     &:focus {
         outline: none;
         border-color: @color-primary;
+    }
+
+    &.ng-invalid.ng-touched,
+    &.danger {
+        border: 1px solid @color-danger;
     }
 }

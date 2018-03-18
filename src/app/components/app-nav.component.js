@@ -15,8 +15,9 @@ function appNavController ($scope, $element, $attrs) {
     }
 }
 
-angular.module('hollywoodStars').component('appNav', {
+var appNavComponent = {
     templateUrl: '/assets/views/partials/app-nav.template.html',
     controller: appNavController
-});
+};
 
+module.exports = appNavComponent;

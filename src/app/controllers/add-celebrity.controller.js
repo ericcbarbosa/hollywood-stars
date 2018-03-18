@@ -1,81 +1,102 @@
 function addCelebrityController( $scope, $routeParams, CelebritiesService ) {
 
-    $scope.celebrities = CelebritiesService.get();
+    $scope.title = 'Add a new celebrity:';
 
+    $scope.celebrities = CelebritiesService.get();
     $scope.updateCelebrities = function () {
         $scope.celebrities = CelebritiesService.get();
     }
 
     $scope.celebrity = {
-        name: '',
+        name: {
+            birth: '',
+            artistic: ''
+        },
+        image: '',
+        birthdate: '',
+        gender: '',
+        height: '',
+        occupation: '',
         description: '',
-        image: ''
+    }
+    
+    $scope.form = {
+        hasError: false,
+        disableSave: true,
+
+        validate: function () {
+            $scope.feedback.messages = [];
+    
+            if ($scope.celebrity.name.artistic.length < 3) {
+                $scope.feedback.messages.push( 'Invalid name' );
+            }
+    
+            if ($scope.celebrity.description.length < 3) {
+                $scope.feedback.messages.push( 'Invalid description' );
+            }
+    
+            if ($scope.celebrity.image.length < 3) {
+                $scope.feedback.messages.push( 'Invalid image path' );
+            }
+    
+            return $scope.feedback.messages;
+        },
+
+        handleBlur: function () {
+            
+        },
+
+        handleChange: function () {
+            $scope.form.disableSave = $scope.form.validate().length > 0 ? true : false;
+        },
+
+        add: function ($form) {
+
+            if ( !$form.$invalid ) {
+                $scope.updateCelebrities();
+    
+                $scope.celebrity.id      = $scope.celebrities ? $scope.celebrities.length + 1 : 1;
+                $scope.celebrity.urlName = CelebritiesService.toUrl( $scope.celebrity.name.artistic );
+    
+                CelebritiesService.add( $scope.celebrity );
+
+                $scope.form.reset();
+                $scope.form.hasError = true;
+
+                $scope.feedback.messagesClass();
+                $scope.feedback.messages.push( $scope.celebrity.name.artistic + ' added successfully!' );
+            } else {
+                $scope.form.hasError = true;
+
+                $scope.feedback.messagesClass();
+                $scope.feedback.messages = [];
+                $scope.feedback.messages.push( 'Complete the form to add a new celebrity' );
+                console.log($form.artisticName);
+            }
+        },
+
+        reset: function () {
+            $scope.celebrity = {
+                name: {
+                    birth: '',
+                    artistic: ''
+                },
+                image: '',
+                birthdate: '',
+                gender: '',
+                height: '',
+                occupation: '',
+                description: '',
+            }
+        }
     }
 
-    $scope.messages = [];
-    $scope.hasError = false;
-
-    $scope.validate = function () {
-        $scope.messages = [];
-
-        if ($scope.celebrity.name.length < 3) {
-            $scope.messages.push( 'Invalid name' );
-        }
-
-        if ($scope.celebrity.description.length < 3) {
-            $scope.messages.push( 'Invalid description' );
-        }
-
-        if ($scope.celebrity.image.length < 3) {
-            $scope.messages.push( 'Invalid image path' );
-        }
-
-        return $scope.messages;
-    },
-
-    $scope.add = function () {
-
-        var messages = $scope.validate();
-
-        if ( messages.length == 0 ) {
-            $scope.updateCelebrities();
-
-            $scope.celebrity.id = $scope.celebrities ? $scope.celebrities.length + 1 : 1;
-            $scope.celebrity.urlName = CelebritiesService.toUrl( $scope.celebrity.name );
-
-            CelebritiesService.add( $scope.celebrity );
-
-            $scope.hasError = false;
-
-            $scope.messages = [];
-            $scope.messages.push( $scope.celebrity.name + ' adicionada com sucesso!' );
-
-            $scope.resetForm();
-
-        } else {
-            $scope.hasError = true;
-        }
-    }
-
-    $scope.resetForm = function () {
-        $scope.celebrity = {
-            id: 0,
-            name: '',
-            urlName: '',
-            description: '',
-            image: ''
-        }
-    }
-
-    $scope.resetMessage = function () {
-        $scope.messages = [];
-    }
-
-    $scope.printMessage = function (text) {
-        $scope.resetMessage();
-
-        $scope.feedback.message = text;
-        $scope.feedback.icon    = 'check';
+    $scope.feedback = {
+        messages: [],
+        messagesModifier: '',
+        messagesClass: function () {
+            $scope.feedback.messagesModifier =  $scope.form.hasError ? 'danger' : 'success';
+        },
     }
 
 }

@@ -132,8 +132,6 @@ function CelebritiesService() {
 
                 });
 
-                console.log('Update ->', celebritiesList);
-
                 this.update( celebritiesList );
             }
 

@@ -1,0 +1,32 @@
+.txt-left { text-align: left; }
+.txt-right { text-align: right; }
+.txt-center { text-align: center; }
+
+.txt-size-1 { font-size: 1rem; }
+.txt-size-2 { font-size: 2rem; }
+.txt-size-3 { font-size: 3rem; }
+.txt-size-4 { font-size: 4rem; }
+.txt-size-5 { font-size: 5rem; }
+.txt-size-6 { font-size: 6rem; }
+
+.txt-default { color: @color-default; }
+.txt-primary { color: @color-primary; }
+.txt-secondary { color: @color-secondary; }
+
+.txt-success { color: @color-success; }
+.txt-info { color: @color-info; }
+.txt-danger { color: @color-danger; }
+.txt-warning { color: @color-warning; }
+.txt-link { color: @color-link; }
+
+.txt-lighter { color: @color-lighter; }
+.txt-light { color: @color-light; }
+.txt-dark { color: @color-dark; }
+.txt-darker { color: @color-darker; }
+
+.txt-bold { font-weight: 700; }
+.txt-normal { font-weight: 400; }
+
+.txt-title {
+    &:extend(.txt-bold, .xt-size-3, .txt-danger, .mb-3);
+}

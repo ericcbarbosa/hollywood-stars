@@ -1,32 +1,220 @@
-<div class="container">
-    <h1>Add Celebrity:</h1>
+<div class="container page-add-celebrity">
+    <h1>{{ title }}</h1>
     
     <div class="row">
-        <form class="col s12 m6">
-            <div class="row">
-                <div class="forms-field col s12">
-                    <label for="name">Name</label>
-                    <input id="name" ng-model="celebrity.name" type="text" class="forms-input browser-default" required minlength="3">
+        <div class="col s12 m6">
+            <form name="celebrityForm">
+                <div class="row">
+
+                    <!-- Name -->
+                    <div class="forms-field col s12 m6">
+                        <label for="name">Artistic name</label>
+                        <input id="name" type="text" class="forms-input browser-default" name="artisticName"
+                               ng-model="celebrity.name.artistic" 
+                               ng-minlength="3"
+                               ng-maxlength="30"
+                               required
+                               capitalize>
+
+                        <!-- ng-messages -->
+                        <ul ng-messages="celebrityForm.artisticName.$error"
+                            ng-show="celebrityForm.artisticName.$touched && celebrityForm.artisticName.$error" 
+                            class="messages form-feedback danger" 
+                            role="alert"
+                        >
+                            <li class="item" ng-message="required">Missing Artistic Name</li>
+                            <li class="item" ng-message="minlength">The Artistic Name is too short</li>
+                            <li class="item" ng-message="maxlength">The Artistic Name is too long</li>
+                        </ul>
+                    </div>
+
+                    <!-- Birth Name -->
+                    <div class="forms-field col s12 m6 mt-0">
+                        <label for="name">Birth name</label>
+                        <input id="name" name="birthName" type="text" class="forms-input browser-default"
+                               ng-model="celebrity.name.birth" 
+                               ng-minlength="3"
+                               ng-maxlength="30"
+                               required
+                               capitalize
+                        >
+
+                        <!-- ng-messages -->
+                        <ul ng-messages="celebrityForm.birthName.$error"
+                            ng-show="celebrityForm.birthName.$touched && celebrityForm.birthName.$error" 
+                            class="messages form-feedback danger" 
+                            role="alert"
+                        >
+                            <li class="item" ng-message="required">Missing Birth Name</li>
+                            <li class="item" ng-message="minlength">The Birth Name is too short</li>
+                            <li class="item" ng-message="maxlength">The Birth Name is too long</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Image Path -->
+                    <div class="forms-field col s12">
+                        <label for="image">Paste an image path:</label>
+                        <input id="image" name="image" type="text"  class="forms-input browser-default"
+                               ng-model="celebrity.image"
+                               ng-minlength="7"
+                               required
+                        >
+
+                        <!-- ng-messages -->
+                        <ul ng-messages="celebrityForm.image.$error"
+                            ng-show="celebrityForm.image.$touched && celebrityForm.image.$error" 
+                            class="messages form-feedback danger" 
+                            role="alert"
+                        >
+                            <li class="item" ng-message="required">Missing image's path</li>
+                            <li class="item" ng-message="maxlength">The image's path is too long</li>
+                        </ul>
+                    </div>
+
+                    <!-- Birthdate -->
+                    <div class="forms-field col s12 m4">
+                        <label for="birthdate">Birthdate</label>
+                        <input id="birthdate" name="birthdate" type="text" class="forms-input browser-default"
+                               ng-model="celebrity.birthdate"
+                               ng-minlength="10"
+                               ng-maxlength="10"
+                               required
+                               date
+                        >
+                        
+                        <!-- ng-messages -->
+                        <ul ng-messages="celebrityForm.birthdate.$error"
+                            ng-show="celebrityForm.birthdate.$touched && celebrityForm.birthdate.$error" 
+                            class="messages form-feedback danger" 
+                            role="alert"
+                        >
+                            <li class="item" ng-message="required">Missing birthdate</li>
+                            <li class="item" ng-message="maxlength">The birthdate is incomplete</li>
+                        </ul>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="forms-field col s12 m4">
+                        <label for="gender">Gender:</label>
+                        <select name="gender" id="gender" class="forms-input browser-default"
+                                ng-model="celebrity.gender"
+                                required
+                        >
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        
+                        <!-- ng-messages -->
+                        <ul ng-messages="celebrityForm.gender.$error"
+                            ng-show="celebrityForm.gender.$touched && celebrityForm.gender.$error" 
+                            class="messages form-feedback danger" 
+                            role="alert"
+                        >
+                            <li class="item" ng-message="required">Missing gender</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Height -->
+                    <div class="forms-field col s12 m4">
+                        <label for="height">Height</label>
+                        <input id="height" name="height" type="text" class="forms-input browser-default"
+                               ng-model="celebrity.height"
+                               ng-minlength="1"
+                               ng-maxlength="4"
+                               required
+                               height
+                        >
+                        
+                        <!-- ng-messages -->
+                        <ul ng-messages="celebrityForm.height.$error"
+                            ng-show="celebrityForm.height.$touched && celebrityForm.height.$error" 
+                            class="messages form-feedback danger" 
+                            role="alert"
+                        >
+                            <li class="item" ng-message="required">Missing height</li>
+                        </ul>
+                    </div>
+
+                    <!-- Occupation -->
+                    <div class="forms-field col s12">
+                        <label for="occupation">Occupation:</label>
+                        <select name="occupation" id="occupation" class="forms-input browser-default"
+                                ng-model="celebrity.occupation"
+                                required
+                        >
+                            <option value="" selected></option>
+                            <option value="actor">Actor / Actress</option>
+                            <option value="singer">Singer</option>
+                        </select>
+                        
+                        <!-- ng-messages -->
+                        <ul ng-messages="celebrityForm.occupation.$error"
+                            ng-show="celebrityForm.occupation.$touched && celebrityForm.occupation.$error" 
+                            class="messages form-feedback danger" 
+                            role="alert"
+                        >
+                            <li class="item" ng-message="required">Missing occupation</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Description -->
+                    <div class="forms-field col s12">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" type="text" class="forms-input browser-default"
+                                  ng-model="celebrity.description"
+                                  ng-minlength="40"
+                                  ng-maxlength="1000"
+                                  required
+                        >
+                        </textarea>
+                        
+                        <!-- ng-messages -->
+                        <ul ng-messages="celebrityForm.description.$error"
+                            ng-show="celebrityForm.description.$touched && celebrityForm.description.$error" 
+                            class="messages form-feedback danger" 
+                            role="alert"
+                        >
+                            <li class="item" ng-message="required">Missing description</li>
+                            <li class="item" ng-message="minlength">The description is too short</li>
+                            <li class="item" ng-message="maxlength">The description is too long</li>
+                        </ul>
+                    </div>
+                    <div class="col s12">
+                        <feedback-messages 
+                            messages="feedback.messages" 
+                            modifier="feedback.messagesModifier">
+                        </feedback-messages>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="forms-field col s12">
+                        <a href="javascript:;" class="btn btn-danger left" ng-click="form.reset()">
+                            Reset
+                        </a>
+                        <a href="javascript:;" class="btn btn-success active right" 
+                           ng-click="form.add(celebrityForm)"
+                        >
+                            Save
+                        </a>
+                    </div>
+
                 </div>
-                <div class="forms-field col s12">
-                    <label for="description">Description</label>
-                    <textarea id="description" ng-model="celebrity.description" type="text" class="forms-input browser-default" required minlength="12"></textarea>
-                </div>
-                
-                <div class="forms-field col s12">
-                    <label for="image">Paste an image path:</label>
-                    <input id="image" type="text" ng-model="celebrity.image" class="forms-input browser-default" required minlength="6">
-                </div>
-                
-                <div class="forms-field col s12">
-                    <a href="javascript:;" ng-click="add()" class="btn btn-success">Save</a>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
+        
+        <!-- preview -->
+        <div class="col s12 m5 offset-m1 preview">
+            <img class="thumb" ng-show="celebrity.image" src="{{ celebrity.image }}"/>
+            <h3 class="name">{{ celebrity.name.artistic }}</h3>
+            <small class="txt-size-1">{{ celebrity.name.birth }}</small>
+            <p class="birthdate"> <strong>Birthdate:</strong> {{ celebrity.birthdate }}</p>
+            <p class="gender"><strong>Gender:</strong> {{ celebrity.gender }}</p>
+            <p class="height"><strong>Height:</strong> {{ celebrity.height }}</p>
+            <p class="occupation"><strong>Occupation:</strong> {{ celebrity.occupation }}</p>
+            <p class="description">{{ celebrity.description }}</p>
+        </div>
     </div>
-    <div class="row" ng-show="messages.length > 0">
-        <ul class="messages col s12 m6"  ng-class="{ 'error': hasError, 'success': !hasError }">
-            <li class="item" ng-repeat="message in messages">{{ message }}</li>
-        </ul>
+
+    <div class="row">
     </div>
 </div>
