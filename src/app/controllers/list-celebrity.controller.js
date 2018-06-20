@@ -1,6 +1,6 @@
 function listCelebrityController( $scope, CelebritiesService ) {
 
-    $scope.celebrityList = CelebritiesService.get();
+    $scope.celebrityList = CelebritiesService.getCelebrities();
 
     $scope.selectOptions = [
         { name: 'Name', value: 'name' },
@@ -9,7 +9,7 @@ function listCelebrityController( $scope, CelebritiesService ) {
 
     $scope.remove = function(id) {
         CelebritiesService.delete(id);
-        $scope.celebrityList = CelebritiesService.get();
+        $scope.celebrityList = CelebritiesService.getCelebrities();
     }
 
     $scope.title = 'All celebrities'

@@ -5,41 +5,83 @@ function CelebritiesService() {
     var celebrities = [
         {
             id: 1,
-            name: 'Sandy Lima',
-            urlName: 'sandy-lima',
-            description: 'cantora, compositora e atriz brasileira. Cantora desde a infância, Sandy começou sua carreira em 1990, quando formou com o irmão, o músico Junior Lima, a dupla vocal Sandy & Junior.',
-            image: 'http://images.virgula.com.br/2015/02/sandy.jpg',
+            name: {
+                birth: 'Marina Souza Ruy Barbosa Negrão',
+                artistic: 'Marina Ruy Barbosa',
+            },
+            urlName: 'marina-ruy-barbosa',
+            description: 'Marina Souza Ruy Barbosa Negrão é uma atriz brasileira. Começou a atuar ainda criança, e fez seu primeiro trabalho de destaque no papel de Aninha na telenovela Começar de Novo.',
+            image: 'https://www.ibahia.com/fileadmin/user_upload/ibahia/2017/julho/13/marina1111.jpg',
+            birthdate: '28/01/1983',
+            gender: 'Female',
+            height: '1.58',
+            occupation: 'Singer',
         }, {
             id: 2,
-            name: 'Manu Gavassi',
-            urlName: 'manu-gavassi',
-            description: 'Manoela Latini Gavassi Francisco, mais conhecida como Manu Gavassi, é uma cantora, compositora, atriz e autora brasileira',
-            image: 'http://metropolitanafm.com.br/wp-content/uploads/2016/07/capa-manu-gavassi.jpg',
+            name: {
+                birth: 'Bruno Gagliasso Marques',
+                artistic: 'Bruno Gagliasso',
+            },
+            urlName: 'bruno-gagliasso',
+            description: 'Começou a carreira ainda criança, em 1990, fazendo figuração em novelas da Rede Globo. Em 1999 participou do episódio "Papai é Gay!", do programa Você Decide.',
+            image: 'https://www.otvfoco.com.br/wp-content/uploads/2017/08/3530300927-bruno-gagliasso-e1503421087829.jpg',
+            birthdate: '13/04/1982',
+            gender: 'Male',
+            height: '1.70',
+            occupation: 'Actor',
         }, {
             id: 3,
-            name: 'Paula Fernandes',
+            name: {
+                birth: 'Paula Fernandes',
+                artistic: 'Paula Fernandes',
+            },
             urlName: 'paula-fernandes',
             description: 'cantora e compositora brasileira. Cantora desde a infância, Fernandes começou a cantar profissionalmente aos oito anos de idade',
             image: 'http://www.assisnews.com.br/wp-content/uploads/2017/12/paula_fernandes-1.jpg',
+            birthdate: '28/08/1984',
+            gender: 'Female',
+            height: '1.65',
+            occupation: 'Singer',
         }, {
             id: 4,
-            name: 'Joana Borges',
-            urlName: 'joana-borges',
-            description: 'é uma jovem actriz portuguesa. Começou por fazer parte do coro infantil " Jovens Cantores de Lisboa" para ingressar no grupo musical " OndaChoc".',
-            image: 'http://s2.glbimg.com/fYMxgE75WaHjEhWzSz1ID0LXZAw=/475x475/top/i.glbimg.com/og/ig/infoglobo/f/original/2017/01/09/joanaborges.png',
+            name: {
+                birth: 'Fausto Corrêa da Silva',
+                artistic: 'Faustão',
+            },
+            urlName: 'fausto-silva',
+            description: 'Fausto Corrêa da Silva, mais conhecido como Faustão, é um apresentador brasileiro que atualmente apresenta o programa de auditório Domingão do Faustão, da Rede Globo.',
+            image: 'http://imagens.us/subcelebridades/fausto-silva/fausto-silva%20(4).jpg',
+            birthdate: '03/05/1950',
+            gender: 'Male',
+            height: '1.88',
+            occupation: 'Presenter',
         }, {
             id: 5,
-            name: 'Paola Oliveira',
+            name: {
+                birth: 'Paolla Oliveira',
+                artistic: 'Paolla Oliveira',
+            },
             urlName: 'paola-oliveira',
             description: 'Paolla Oliveira é descendente de espanhóis, italianos e portugueses. Ela é filha de um policial militar aposentado e de uma ex-auxiliar de enfermagem',
             image: 'https://patricinhaesperta.com.br/wp-content/uploads/2013/05/paola-oliveira.jpg',
+            birthdate: '28/01/1983',
+            gender: 'Female',
+            height: '1.58',
+            occupation: 'Singer',
         }, {
             id: 6,
-            name: 'Marina Ruy Barbosa',
-            urlName: 'marina-ruy-barbosa',
-            description: 'Marina Souza Ruy Barbosa Negrão é uma atriz brasileira. Começou a atuar ainda criança, e fez seu primeiro trabalho de destaque no papel de Aninha na telenovela Começar de Novo.',
-            image: 'http://s2.glbimg.com/Zpl4bjt56sjaF0zb9x3pK4-oPWM=/e.glbimg.com/og/ed/f/original/2017/08/07/marn.jpg',
-        }
+            name: {
+                birth: 'Sandy Lima',
+                artistic: 'Sandy Lima',
+            },
+            urlName: 'sandy-lima',
+            description: 'cantora, compositora e atriz brasileira. Cantora desde a infância, Sandy começou sua carreira em 1990, quando formou com o irmão, o músico Junior Lima, a dupla vocal Sandy & Junior.',
+            image: 'http://images.virgula.com.br/2015/02/sandy.jpg',
+            birthdate: '28/01/1983',
+            gender: 'Female',
+            height: '1.58',
+            occupation: 'Singer',
+        },
     ];
 
     var service = {
@@ -60,6 +102,7 @@ function CelebritiesService() {
         },
 
         getCelebrities: function () {
+            console.log('celebrities: ', celebrities);
             return celebrities;
         },
 
@@ -89,7 +132,7 @@ function CelebritiesService() {
         },
 
         search: function(id) {
-            var celebritiesList = this.get();
+            var celebritiesList = this.getCelebrities();
             var searchResult;
 
             id = parseInt(id);

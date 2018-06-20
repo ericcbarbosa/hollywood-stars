@@ -1,5 +1,6 @@
 function celebrityController( $scope, $routeParams, CelebritiesService, $window ) {
-    
+
+    console.log('parseInt( $routeParams.id ): ', CelebritiesService.search( parseInt( $routeParams.id )) );
     $scope.celebrity = CelebritiesService.search( parseInt( $routeParams.id ) );
 
     $scope.showMessage = false;

@@ -2,9 +2,9 @@ function addCelebrityController( $scope, $routeParams, CelebritiesService ) {
 
     $scope.title = 'Add a new celebrity:';
 
-    $scope.celebrities = CelebritiesService.get();
+    $scope.celebrities = CelebritiesService.getCelebrities();
     $scope.updateCelebrities = function () {
-        $scope.celebrities = CelebritiesService.get();
+        $scope.celebrities = CelebritiesService.getCelebrities();
     }
 
     $scope.celebrity = {
